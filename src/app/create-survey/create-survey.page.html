@@ -1,0 +1,256 @@
+<ion-content
+  ><ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <ion-header>
+    <ion-toolbar class="headBg">
+      <div class="header">
+        <div class="back-btn">
+          <svg
+            (click)="back()"
+            class="backSvg"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="14.25px"
+            height="20.43px"
+            viewBox="0 0 792.082 792.082"
+            style="enable-background: new 0 0 792.082 792.082"
+            xml:space="preserve"
+          >
+            <g>
+              <g id="_x37__34_">
+                <g>
+                  <path
+                    d="M317.896,396.024l304.749-276.467c27.36-27.36,27.36-71.677,0-99.037s-71.677-27.36-99.036,0L169.11,342.161
+            c-14.783,14.783-21.302,34.538-20.084,53.897c-1.218,19.359,5.301,39.114,20.084,53.897l354.531,321.606
+            c27.36,27.36,71.677,27.36,99.037,0s27.36-71.677,0-99.036L317.896,396.024z"
+                  />
+                </g>
+              </g>
+            </g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+          </svg>
+        </div>
+        <div *ngIf="createsurvey==false">
+          <p class="TopHead">Create Survey</p>
+          <p class="TopSub">
+            Choose your questions to complete the survey you want to send:
+          </p>
+        </div>
+        <div *ngIf="savedsurvey==true">
+          <p class="TopHead">Saved Survey</p>
+          <p class="TopSub">
+            Choose your saved survey and send to your players
+          </p>
+        </div>
+        
+        
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <div class="create">
+          <p *ngIf="surveyNameError.status" class="error">
+            {{surveyNameError.message}}
+          </p>
+          <p *ngIf="TimeError.status" class="error">
+            {{TimeError.message}}
+          </p>
+
+          <div class="btndiv">
+
+            <ion-button class="btn1" (click)="create()" id="creatediv">Create Survey</ion-button>
+            <ion-button class="btn2" (click)="saved()" id="saveddiv">Saved Survey</ion-button>
+            <div class="clear"></div>
+          </div>
+          <div *ngIf="createsurvey==false">
+            <ion-input
+              class="input"
+              value=""
+              type="text"
+              [(ngModel)]="surveyName"
+              placeholder="Survey Name"
+            ></ion-input>
+
+            <ion-input
+              class="input"
+              value=""
+              type="tel"
+              [(ngModel)]="maxTime"
+              placeholder="Training time(mins)"
+              mode="ios"
+            ></ion-input>
+          </div>
+
+          <div *ngIf="savedsurvey==true">
+            <div *ngIf="isLoading" class="spinner">
+              <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+            <div *ngIf="surveyList.length===0" class="notFoundDiv">
+              <p class="notFound">No survey found</p>
+            </div>
+            <div *ngFor="let sur of surveyList; let i = index;">
+              <div class="check-box1">
+                <ion-checkbox
+                  (ionChange)="addSurveyQuestion1(sur,$event,i)"
+                  class="checkBox1"
+                ></ion-checkbox>
+                <div class="selectInput">
+                  <ion-input
+                    (click)="toggleSelect(i,sur)"
+                    class="input1"
+                    value="{{sur.surveyname}}"
+                    readonly
+                  ></ion-input>
+
+                  <!-- <div *ngIf="displayOption" class="options">
+                    <ion-input
+                      *ngFor="let sur of surveyList"
+                      (click)="selectSurvey(sur)"
+                      class="option"
+                      value=""
+                      readonly
+                      value="{{sur.survey_name}}"
+                    ></ion-input>
+                  </div> -->
+                  <div *ngIf="isLoading" class="spinnerSurvey">
+                    <div class="lds-ring">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div *ngIf="!isLoading" class="dorpIcon" (click)="toggleSelect(i,sur)">
+                    <svg
+                      *ngIf="(sur.isdown)"
+                      class="polygon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="13"
+                      viewBox="0 0 15 13"
+                    >
+                      <defs>
+                        <style>
+                          .a {
+                            fill: #002c53;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        class="a"
+                        d="M5.768,3A2,2,0,0,1,9.232,3l4.037,7a2,2,0,0,1-1.732,3H3.463A2,2,0,0,1,1.73,10Z"
+                        transform="translate(15 13) rotate(180)"
+                      />
+                    </svg>
+
+                    <svg
+                      *ngIf="!(sur.isdown)"
+                      class="polygon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="13"
+                      viewBox="0 0 15 13"
+                    >
+                      <defs>
+                        <style>
+                          .a {
+                            fill: #002c53;
+                          }
+                        </style>
+                      </defs>
+                      <path
+                        class="a"
+                        d="M5.768,3A2,2,0,0,1,9.232,3l4.037,7a2,2,0,0,1-1.732,3H3.463A2,2,0,0,1,1.73,10Z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf='(sur.isdown)' class="divfound">
+                <div *ngFor='let question of sur.questionslist' class="qesdiv">
+                  {{question.question_name}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <div *ngIf="createsurvey==false">
+          <div *ngIf="isLoading" class="spinner">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div *ngIf="error.status" class="notFoundDiv">
+            <p class="notFound">{{error.message}}</p>
+          </div>
+          <div *ngIf="!isLoading" class="checkboxes">
+            <div *ngIf="questions" class="">
+              <div *ngFor="let question of questions" class="check-box">
+                <ion-checkbox
+                  (ionChange)="addSurveyQuestion(question,$event)"
+                  class="checkBox"
+                ></ion-checkbox>
+                <p class="checkbox-label">{{question.question_name}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p *ngIf="addQuestionError.status" class="error">
+        {{addQuestionError.message}}
+      </p>
+
+      <div *ngIf="createsurvey==false">
+        <div *ngIf="!error.status" class="">
+          <ion-button *ngIf="!isLoading" (click)="send()" class="btn_send"
+            >SEND SURVEY</ion-button
+          >
+          <ion-button *ngIf="!isLoading" (click)="savesurvey()" class="btn_save"
+            >SAVE SURVEY</ion-button
+          >
+        </div>
+      </div>
+
+      <div *ngIf="savedsurvey==true">
+        <div *ngIf="!error.status" class="">
+          <ion-button *ngIf="!isLoading" (click)="sendsaved()" class="btn_send"
+            >SEND SURVEY</ion-button
+          >
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,180 @@
+<ion-content
+  ><ion-refresher slot="fixed" (ionRefresh)="coachService.doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <ion-header>
+    <ion-toolbar class="headBg">
+      <div class="header">
+        <div class="back-btn">
+          <svg
+            (click)="coachService.back()"
+            class="backSvg"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="14.25px"
+            height="20.43px"
+            viewBox="0 0 792.082 792.082"
+            style="enable-background: new 0 0 792.082 792.082"
+            xml:space="preserve"
+          >
+            <g>
+              <g id="_x37__34_">
+                <g>
+                  <path
+                    d="M317.896,396.024l304.749-276.467c27.36-27.36,27.36-71.677,0-99.037s-71.677-27.36-99.036,0L169.11,342.161
+            c-14.783,14.783-21.302,34.538-20.084,53.897c-1.218,19.359,5.301,39.114,20.084,53.897l354.531,321.606
+            c27.36,27.36,71.677,27.36,99.037,0s27.36-71.677,0-99.036L317.896,396.024z"
+                  />
+                </g>
+              </g>
+            </g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+          </svg>
+        </div>
+        <p class="TopHead">Your Team</p>
+      </div>
+      <div class="addnew">
+        <div class="inputfield">
+          <div *ngIf="coachService.displayInput==true" class="create-input">
+           <!--  <div *ngIf="coachService.inputvalue==false"> -->
+              <ion-input
+              [disabled]='coachService.isdisabled'
+                #addInput
+                class="input1"
+                value="{{coachService.teamname}}"
+                type="text"
+                (keyup.enter)="coachService.onEnterTeam(addInput)"
+                placeholder="Team Name"
+              ></ion-input>
+            <!-- </div> -->
+            <!-- <div *ngIf="coachService.textvalue==true">
+                <ion-input
+                #addInput
+                class="input1"
+                value="{{coachService.teamname}}"
+                type="text"
+                placeholder="Team Name"
+                readonly
+              ></ion-input>
+            </div> -->
+          <div *ngIf="coachService.addLoading1" class="spinner">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <ion-icon
+            *ngIf="!coachService.addLoading1"
+            (click)="coachService.addTeam(addInput)"
+            class="icon-add"
+            name="checkmark-circle"
+          ></ion-icon>
+        </div>
+         <!--  <ion-input #addInput class="input1" value="" type="text"
+          placeholder="Team Name"
+          *ngIf="coachService.displayInput"></ion-input> -->
+        </div>
+        <p (click)="coachService.toggle()" class="add-new add-new1">
+          +<span class="add-new-text">add new</span>
+        </p>
+        <div class="clear"></div>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <p *ngIf="coachService.error.status" class="error">
+          {{coachService.error.message}}
+        </p>
+        <div *ngIf="coachService.displayInput" class="create-input">
+          <ion-input
+            #addInput
+            class="input"
+            value=""
+            type="text"
+            (keyup.enter)="coachService.onEnter(addInput)"
+            placeholder="User Name"
+          ></ion-input>
+          <div *ngIf="coachService.addLoading" class="spinner">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <ion-icon
+            *ngIf="!coachService.addLoading"
+            (click)="coachService.addPlayer(addInput)"
+            class="icon-add"
+            name="checkmark-circle"
+          ></ion-icon>
+        </div>
+        <div class="list">
+          <div *ngIf="!coachService.isLoading" class="">
+            <div *ngIf="coachService.team.length === 0" class="notFoundDiv">
+              <p class="notFound">No player Found!</p>
+            </div>
+          </div>
+          <div *ngIf="coachService.isLoading" class="spinner">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+
+          <div *ngFor="let player of coachService.team" class="list-item">
+            <ion-input
+              class="list-title"
+              value=""
+              type="text"
+              readonly
+              value="{{player.user_name}}"
+            ></ion-input>
+            <ion-icon
+              *ngIf="coachService.deleteId !== player.teams_id"
+              (click)="coachService.removePlayer(player.teams_id)"
+              class="icon-remove"
+              name="trash"
+            ></ion-icon>
+            <div
+              *ngIf="coachService.deleteId === player.teams_id"
+              class="spinner"
+            >
+              <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

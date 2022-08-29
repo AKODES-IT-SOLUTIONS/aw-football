@@ -1,0 +1,145 @@
+.container {
+  width: 80%;
+  margin: auto;
+}
+.row1,
+.row2 {
+  display: flex;
+  justify-content: center;
+}
+.row1 {
+  margin: 103.88px 0 184.88px 0;
+  align-items: center;
+}
+.row2 {
+  padding-bottom: 15px;
+}
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
+
+.col-6-btn {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.btn_coach,
+.btn_player {
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --background: #002c53;
+  font-size: 15px;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0;
+  --border-radius: 10px;
+  text-transform: uppercase;
+}
+.btn_coach {
+  margin-bottom: 25px;
+}
+
+@media (min-height: 568px) {
+  .row1 {
+    margin: 85.88px 0 100.88px 0;
+  }
+  .row2 {
+    padding-bottom: 10px;
+  }
+  .btn_coach {
+    margin-bottom: 15px;
+  }
+}
+@media (min-height: 610px) {
+  .row1 {
+    margin: 105.88px 0 115.88px 0;
+  }
+  .row2 {
+    padding-bottom: 10px;
+  }
+  .btn_coach {
+    margin-bottom: 25px;
+  }
+}
+@media (min-height: 640px) {
+  .row1 {
+    margin: 90.88px 0 170.88px 0;
+  }
+  .row2 {
+    padding-bottom: 10px;
+  }
+}
+@media (min-height: 653px) {
+  .row1 {
+    margin: 130.88px 0 140.88px 0;
+  }
+  .row2 {
+    padding-bottom: 10px;
+  }
+}
+@media (min-height: 665px) {
+  .row1 {
+    margin: 130.88px 0 145.88px 0;
+  }
+  .row2 {
+    padding-bottom: 15px;
+  }
+}
+@media (min-height: 731px) {
+  .row1 {
+    margin: 165.88px 0 170.88px 0;
+  }
+  .row2 {
+    padding-bottom: 20px;
+  }
+}
+@media (min-height: 736px) {
+  .row1 {
+    margin: 170.88px 0 170.88px 0;
+  }
+  .row2 {
+    padding-bottom: 20px;
+  }
+}
+@media (min-height: 760px) {
+  .row1 {
+    margin: 180.88px 0 185.88px 0;
+  }
+  .row2 {
+    padding-bottom: 20px;
+  }
+}
+@media (min-height: 800px) {
+  .row1 {
+    margin: 200.88px 0 200.88px 0;
+  }
+  .row2 {
+    padding-bottom: 20px;
+  }
+}
+
+@media (min-height: 823px) {
+  .row1 {
+    margin: 215.88px 0 200.88px 0;
+  }
+  .row2 {
+    padding-bottom: 20px;
+  }
+}
+@media (min-height: 844px) {
+  .row1 {
+    margin: 225.88px 0 210.88px 0;
+  }
+}
+@media (min-height: 896px) {
+  .row1 {
+    margin: 250.88px 0 240.88px 0;
+  }
+}
+@media (min-height: 926px) {
+  .row1 {
+    margin: 265.88px 0 250.88px 0;
+  }
+}

@@ -1,0 +1,194 @@
+<ion-content
+  ><ion-refresher
+    *ngIf="survey !== ''"
+    slot="fixed"
+    (ionRefresh)="doRefresh($event)"
+  >
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <div class="headDiv">
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="headBg">
+        <div class="header">
+          <div class="back-btn">
+            <svg
+              (click)="back()"
+              class="backSvg"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="14.25px"
+              height="20.43px"
+              viewBox="0 0 792.082 792.082"
+              style="enable-background: new 0 0 792.082 792.082"
+              xml:space="preserve"
+            >
+              <g>
+                <g id="_x37__34_">
+                  <g>
+                    <path
+                      d="M317.896,396.024l304.749-276.467c27.36-27.36,27.36-71.677,0-99.037s-71.677-27.36-99.036,0L169.11,342.161
+              c-14.783,14.783-21.302,34.538-20.084,53.897c-1.218,19.359,5.301,39.114,20.084,53.897l354.531,321.606
+              c27.36,27.36,71.677,27.36,99.037,0s27.36-71.677,0-99.036L317.896,396.024z"
+                    />
+                  </g>
+                </g>
+              </g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+            </svg>
+          </div>
+          <div class="container">
+            <p class="TopHead">Question To Question</p>
+          </div>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+    <div class="headBg2">
+      <div class="container">
+        <div class="selectInput">
+          <ion-input
+            (click)="toggleSelect()"
+            [(ngModel)]="survey"
+            class="input"
+            value=""
+            readonly
+            placeholder="Select Survey"
+          ></ion-input>
+
+          <div *ngIf="displayOption" class="options">
+            <ion-input
+              *ngFor="let sur of surveyList"
+              (click)="selectSurvey(sur)"
+              class="option"
+              value=""
+              readonly
+              value="{{sur.survey_name}} {{sur.date_added}}"
+            ><span></span></ion-input>
+          </div>
+          <div *ngIf="isLoading" class="spinnerSurvey">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div *ngIf="!isLoading" class="dorpIcon">
+            <svg
+              *ngIf="!displayOption"
+              class="polygon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="13"
+              viewBox="0 0 15 13"
+            >
+              <defs>
+                <style>
+                  .a {
+                    fill: #002c53;
+                  }
+                </style>
+              </defs>
+              <path
+                class="a"
+                d="M5.768,3A2,2,0,0,1,9.232,3l4.037,7a2,2,0,0,1-1.732,3H3.463A2,2,0,0,1,1.73,10Z"
+                transform="translate(15 13) rotate(180)"
+              />
+            </svg>
+
+            <svg
+              *ngIf="displayOption"
+              class="polygon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="13"
+              viewBox="0 0 15 13"
+            >
+              <defs>
+                <style>
+                  .a {
+                    fill: #002c53;
+                  }
+                </style>
+              </defs>
+              <path
+                class="a"
+                d="M5.768,3A2,2,0,0,1,9.232,3l4.037,7a2,2,0,0,1-1.732,3H3.463A2,2,0,0,1,1.73,10Z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="container">
+      <div *ngIf="survey === ''" class="notFoundDiv">
+        <p class="notFound">Please select a survey!</p>
+      </div>
+
+      <div *ngIf="questionAnswer.length > 0" class="main-heading">
+        <ion-icon
+          (click)="previousQuestion()"
+          class="arrow"
+          name="arrow-back-circle"
+        ></ion-icon>
+        <p class="head">{{questionAnswer[displayQuestion].question_name}}</p>
+        <ion-icon
+          (click)="nextQuestion()"
+          class="arrow"
+          name="arrow-forward-circle"
+        ></ion-icon>
+      </div>
+      <div *ngIf="displaySpinner" class="spinner-div">
+        <div class="spinner">
+          <div class="lds-ring2">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="questionAnswer.length > 0">
+        <div *ngIf="!displaySpinner">
+          <div
+            *ngIf="questionAnswer[displayQuestion].surveys_responses.length > 0;else nothingFound"
+            class="list"
+          >
+            <div
+              *ngFor="let ans of questionAnswer[displayQuestion].surveys_responses"
+              class="list-item"
+            >
+              <p class="list-title">{{ans.user_name}}</p>
+              <p class="list-points">{{ans.answer}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #nothingFound>
+        <div *ngIf="!displaySpinner" class="notFoundDiv">
+          <p class="notFound">No response added by player yet!</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</ion-content>

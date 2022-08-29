@@ -1,0 +1,50 @@
+.selectInput {
+  position: relative;
+}
+.input {
+  width: 60px;
+  border: none;
+  --padding-start: 15px;
+  --padding-end: 20px;
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #002c53;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: start;
+  margin: auto;
+  cursor: pointer;
+}
+.options {
+  z-index: 9999;
+  margin-top: -8px;
+  position: absolute;
+  max-height: 92px;
+  overflow-x: hidden;
+  overflow: scroll;
+  box-shadow: 0 4px 2px -2px gray;
+  border-radius: 10px;
+}
+.option {
+  --padding-start: 20px;
+  --padding-end: 15x;
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  font-weight: 700;
+  border-radius: none;
+  background-color: #fff;
+  color: #002c53;
+  --placeholder-color: #002c53;
+  font-size: 12px;
+  margin: auto;
+  margin-top: -2px;
+  cursor: pointer;
+}
+.polygon {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  z-index: 5;
+}

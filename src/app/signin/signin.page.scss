@@ -1,0 +1,366 @@
+.headBg {
+  --background: #f5f5f5;
+}
+.header {
+  display: flex;
+}
+.back-btn {
+  font-size: 20px;
+  padding: 10px 0 0 15px;
+  fill: #333;
+  cursor: pointer;
+}
+.backSvg {
+  fill: #333;
+}
+///
+.container {
+  width: 80%;
+  margin: auto;
+}
+.row2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.row1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-6-btn {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.btn_login {
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --background: #002c53;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0;
+  --border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.image {
+  width: 200px !important;
+  height: 178px;
+}
+
+.heading {
+  margin: 32px 0 30px 0;
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: 2.5px;
+}
+.input {
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #002c53;
+  font-size: 14px;
+  font-weight: 500;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.check-box {
+  display: flex;
+  margin-bottom: 12px;
+}
+.checkBox {
+  --background-checked: #002c53;
+  --checkmark-color: #fff;
+  --border-color: #002c53;
+  --border-color-checked: #002c53;
+  --border-radius: 5px;
+  --border-width: 1px;
+}
+.checkbox-label {
+  font-size: 14px;
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+.forgotPass {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+.forgotPass p {
+  cursor: pointer;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 47px;
+  margin-bottom: 10px;
+}
+.signup p {
+  font-size: 14px;
+}
+
+.signupText {
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.error {
+  color: red;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+//spinner
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.logoSvg {
+  width: 232.667px;
+  height: 208.249px;
+}
+@media only screen and (min-height: 568px) {
+  .logoSvg {
+    width: 160.667px;
+    height: 143.249px;
+  }
+  .heading {
+    font-size: 20px;
+    margin: 5px 0 5px 0;
+  }
+  .error {
+    font-size: 12px;
+    padding-bottom: 0;
+  }
+  .input {
+    margin-bottom: 5px;
+  }
+  .checkBox {
+    width: 20px;
+    height: 20px;
+  }
+  .check-box {
+    margin-bottom: 5px;
+  }
+  .forgotPass {
+    margin-bottom: 10px;
+  }
+  .row2 {
+    margin-bottom: 5px;
+  }
+  .signup {
+    margin-top: 20px;
+  }
+}
+@media only screen and (min-height: 610px) {
+  .logoSvg {
+    width: 170.667px;
+    height: 160.249px;
+  }
+  .heading {
+    font-size: 25px;
+    margin: 10px 0 10px 0;
+  }
+  .forgotPass {
+    margin-bottom: 15px;
+  }
+  .input {
+    margin-bottom: 10px;
+  }
+  .signup {
+    margin-top: 15px;
+  }
+}
+@media only screen and (min-height: 640px) {
+  .logoSvg {
+    width: 180.667px;
+    height: 162.249px;
+  }
+  .heading {
+    margin: 13px 0 13px 0;
+  }
+  .error {
+    font-size: 13px;
+    padding-bottom: 0;
+  }
+  .checkBox {
+    width: 20px;
+    height: 20px;
+  }
+  .row2 {
+    margin-bottom: 15px;
+  }
+  .check-box {
+    margin-bottom: 15px;
+  }
+  .signup {
+    margin-top: 24px;
+  }
+}
+@media only screen and (min-height: 665px) {
+  .logoSvg {
+    width: 220.667px;
+    height: 180.249px;
+  }
+  .heading {
+    margin: 15px 0 15px 0;
+  }
+  .error {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+  .signup {
+    margin-top: 24px;
+  }
+}
+@media only screen and (min-height: 700px) {
+  .logoSvg {
+    width: 232.667px;
+    height: 190.249px;
+  }
+  .heading {
+    margin: 30px 0 30px 0;
+  }
+  .error {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+  .signup {
+    margin-top: 30px;
+  }
+}
+@media only screen and (min-height: 731px) {
+  .logoSvg {
+    width: 232.667px;
+    height: 208.249px;
+  }
+  .heading {
+    margin: 30px 0 30px 0;
+  }
+  .error {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+  .signup {
+    margin-top: 50px;
+  }
+}
+@media only screen and (min-height: 736px) {
+  .logoSvg {
+    width: 225.667px;
+    height: 225.249px;
+  }
+  .heading {
+    margin: 30px 0 30px 0;
+  }
+  .signup {
+    margin-top: 40px;
+  }
+}
+@media only screen and (min-height: 760px) {
+  .signup {
+    margin-top: 60px;
+  }
+}
+@media only screen and (min-height: 780px) {
+  .signup {
+    margin-top: 80px;
+  }
+}
+@media only screen and (min-height: 800px) {
+  .logoSvg {
+    width: 232.667px;
+    height: 260.249px;
+  }
+  .heading {
+    margin: 15px 0 15px 0;
+  }
+  .signup {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-height: 823px) {
+  .logoSvg {
+    width: 232.667px;
+    height: 260.249px;
+  }
+  .heading {
+    margin: 30px 0 30px 0;
+  }
+  .signup {
+    margin-top: 85px;
+  }
+}
+@media only screen and (min-height: 844px) {
+  .logoSvg {
+    width: 260.667px;
+    height: 275.249px;
+  }
+  .signup {
+    margin-top: 90px;
+  }
+}
+@media only screen and (min-height: 896px) {
+  .logoSvg {
+    width: 280.667px;
+    height: 310.249px;
+  }
+  .signup {
+    margin-top: 105px;
+  }
+}
+@media only screen and (min-height: 926px) {
+  .logoSvg {
+    width: 310.667px;
+    height: 340.249px;
+  }
+  .signup {
+    margin-top: 110px;
+  }
+}

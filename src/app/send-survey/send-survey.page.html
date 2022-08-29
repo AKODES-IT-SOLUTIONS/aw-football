@@ -1,0 +1,100 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar class="headBg">
+      <div class="header">
+        <div class="back-btn">
+          <svg
+            (click)="back()"
+            class="backSvg"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="14.25px"
+            height="20.43px"
+            viewBox="0 0 792.082 792.082"
+            style="enable-background: new 0 0 792.082 792.082"
+            xml:space="preserve"
+          >
+            <g>
+              <g id="_x37__34_">
+                <g>
+                  <path
+                    d="M317.896,396.024l304.749-276.467c27.36-27.36,27.36-71.677,0-99.037s-71.677-27.36-99.036,0L169.11,342.161
+          c-14.783,14.783-21.302,34.538-20.084,53.897c-1.218,19.359,5.301,39.114,20.084,53.897l354.531,321.606
+          c27.36,27.36,71.677,27.36,99.037,0s27.36-71.677,0-99.036L317.896,396.024z"
+                  />
+                </g>
+              </g>
+            </g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+          </svg>
+        </div>
+        <p class="TopHead">Send Survey</p>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <div class="main">
+    <div class="container">
+      <div class="checkboxes">
+        <div *ngIf="!isLoading">
+          <div *ngIf="team.length === 0" class="notFoundDiv">
+            <p class="notFound">No player Found!</p>
+          </div>
+        </div>
+        <div *ngIf="isLoading" class="spinner-div">
+          <div class="spinner">
+            <div class="lds-ring2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <div class="check-box" *ngFor="let player of team">
+          <ion-checkbox
+            (ionChange)="addPlayers(player,$event)"
+            class="checkBox"
+          ></ion-checkbox>
+          <p class="checkbox-label">{{player.user_name}}</p>
+        </div>
+      </div>
+      <p *ngIf="playerSelectError.status" class="error">
+        {{playerSelectError.message}}
+      </p>
+      <ion-button
+        [disabled]="sendingSurvey"
+        *ngIf="team.length !== 0"
+        (click)="send()"
+        class="btn_send"
+      >
+        <div *ngIf="sendingSurvey" class="spinner">
+          <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <span *ngIf="!sendingSurvey">SEND</span></ion-button
+      >
+    </div>
+  </div>
+</ion-content>

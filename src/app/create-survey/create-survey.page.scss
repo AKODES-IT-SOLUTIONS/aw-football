@@ -1,0 +1,324 @@
+.headBg {
+  --background: #002c53;
+  --padding-bottom: 30px;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+.back-btn {
+  font-size: 20px;
+  padding: 10px 0 0 0;
+  fill: #fff;
+  cursor: pointer;
+}
+.backSvg {
+  fill: #fff;
+}
+.TopHead {
+  font-size: 25px;
+  padding-top: 12px;
+  padding-bottom: 5px;
+  color: #fff;
+}
+.TopSub {
+  font-size: 14px;
+  font-weight: 200;
+  padding-bottom: 5px;
+  color: #fff;
+}
+
+///
+.container {
+  width: 80%;
+  margin: auto;
+}
+.main {
+  border-radius: 25px;
+  position: relative;
+  margin-top: -20px;
+  padding: 11px;
+  padding-top: 20px;
+  padding-left: 9px;
+  background: #f5f5f5;
+  z-index: 9999;
+}
+.row {
+  display: flex;
+  flex-direction: column;
+}
+.btndiv{
+  background: #fff;
+    padding: 6px;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+.checkbtn{
+  --background-checked:#002C53;
+  --color-checked:#fff;
+  --background:transparent;
+  --color:#AAAAAA;
+  border-radius: 10px;
+  opacity: 0.8;
+}
+.checkbtn1{
+  --background-checked:#002C53;
+  --color-checked:#fff;
+  --background:transparent;
+  --color:#AAAAAA;
+  border-radius: 10px;
+  opacity: 0.8;
+}
+.btn1{
+  --background: #002C53;
+    --border-radius: 10px;
+    width:50%;
+    float: left;
+    height: 45px;
+    font-size: 15px;
+    color: #fff;
+    opacity: 0.8;
+}
+.btn1new{
+  --background: transparent;
+  --box-shadow: none;
+    --border-radius: 10px;
+    width:50%;
+    float: left;
+    height: 45px;
+    font-size: 15px;
+    color: #AAAAAA;
+    opacity: 0.8;
+}
+.btn2{
+  --background: transparent;
+  --box-shadow:none;
+    --border-radius: 10px;
+    height: 45px;
+    width:50%;
+    float: left;
+    font-size: 15px;
+    color: #AAAAAA;
+    opacity: 0.8;
+}
+.btn2new{
+  --background: #002C53;
+    --border-radius: 10px;
+    width:50%;
+    float: left;
+    height: 45px;
+    font-size: 15px;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.clear{
+  clear: both;
+}
+///////saved survey css//////
+  .selectInput {
+  position: relative;
+  margin-bottom: 20px;
+}
+.input1 {
+  border: none;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 1px;
+  --padding-bottom: 0px;
+  border-radius: 10px;
+  // background-color: #fff;
+  color: #002c53;
+  font-size: 18px;
+  margin: auto;
+  cursor: pointer;
+  margin-left:5%;
+}
+.options {
+  z-index: 9999;
+  margin-top: -8px;
+  max-height: 350px;
+  overflow-x: hidden;
+  overflow: scroll;
+  position: absolute;
+  width: 100%;
+}
+.option {
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  border-radius: none;
+  // background-color: #fff;
+  color: #002c53;
+  --placeholder-color: #002c53;
+  font-size: 14px;
+  margin: auto;
+  margin-top: -2px;
+  cursor: pointer;
+}
+.polygon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+.notFoundDiv {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+.notFound {
+  text-align: center;
+  font-weight: 400;
+  color: #002c53;
+  font-size: 15px;
+}
+.spinnerSurvey {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+/////////////////////
+.input {
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --placeholder-color: #002c53;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #002c53;
+  font-size: 12px;
+  margin: auto;
+  margin-bottom: 15px;
+}
+.error {
+  color: red;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.check-box {
+  display: flex;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.check-box1 {
+  display: flex;
+  margin-bottom: 10px;
+  cursor: pointer;
+  margin-top: 7%;
+}
+.notFoundDiv {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+.notFound {
+  text-align: center;
+  font-weight: 500;
+  color: #002c53;
+  font-size: 15px;
+}
+.checkBox {
+  --background-checked: #002c53;
+  --checkmark-color: #fff;
+  --border-color: #002c53;
+  --border-color-checked: #002c53;
+  --border-radius: 7px;
+  flex-shrink: 0;
+}
+.checkBox1{
+  --background-checked: #002c53;
+  --checkmark-color: #fff;
+  --border-color: #002c53;
+  --border-color-checked: #002c53;
+  --border-radius: 7px;
+  flex-shrink: 0;
+  margin-top: 1%;
+}
+.checkbox-label {
+  font-size: 14px;
+  margin-left: 15px;
+}
+.saved-label{
+  color:#002C53;
+  font-size: 12px;
+  margin-bottom: 3%;
+}
+.btn_send {
+  margin-top: 80px;
+  --background: #002c53;
+  font-weight: 300;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #fff;
+  letter-spacing: 0;
+  --border-radius: 10px;
+}
+.btn_save {
+  margin-top: 20px;
+  --background: #C91E53;
+  font-weight: 300;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #fff;
+  letter-spacing: 0;
+  --border-radius: 10px;
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+//spinner
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 4px solid #002c53;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #002c53 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.divfound{
+  margin-top: 5%;
+  margin-left: 1%;
+}
+.qesdiv{
+  color:#002C53;
+  font-size:12px;
+  margin-top: 5%;
+}
+

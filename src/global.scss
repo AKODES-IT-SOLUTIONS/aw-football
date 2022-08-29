@@ -1,0 +1,222 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+ion-content {
+  --background: #f5f5f5;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.alert-wrapper.ion-overlay-wrapper.sc-ion-alert-md {
+  padding: 20px;
+  border-radius: 25px;
+}
+.alert-head.sc-ion-alert-md + .alert-message.sc-ion-alert-md {
+  color: #002c53;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+ion-content {
+  --background: var(--ion-color-background, #f5f5f5);
+}
+.alert-message.sc-ion-alert-md {
+  color: #002c53;
+  font-size: 19px !important;
+  font-weight: 500;
+  text-align: center;
+}
+
+span.alert-button-inner.sc-ion-alert-md {
+  justify-content: center;
+}
+.passwordReset {
+  .alert-head.sc-ion-alert-md {
+    display: none;
+  }
+  button.alert-button.ion-focusable.ion-activatable.btn_ok.sc-ion-alert-md {
+    color: #fff;
+    background-color: #002c53;
+    font-weight: 300;
+    width: 100%;
+    margin: auto;
+    letter-spacing: 0;
+    border-radius: 10px;
+  }
+}
+.sendSurvey {
+  .alert-head.sc-ion-alert-md {
+    display: none;
+  }
+  button.alert-button.ion-focusable.ion-activatable.btn_ok.sc-ion-alert-md {
+    color: #fff;
+    background-color: #002c53;
+    font-weight: 300;
+    width: 100%;
+    margin: auto;
+    letter-spacing: 0;
+    border-radius: 10px;
+  }
+}
+.my-custom-class {
+  .alert-wrapper.ion-overlay-wrapper.sc-ion-alert-md {
+      padding: 10px;
+      border-radius: 20px;
+      margin-top: 10%;
+      /* width: 57%; */
+  }
+  .alert-head.sc-ion-alert-md {
+    padding-left: 23px;
+    padding-right: 23px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .alert-title.sc-ion-alert-md {
+    color: var(--ion-text-color, #000);
+    font-size: 25px;
+    font-weight: 600;
+  }
+  .alert-sub-title.sc-ion-alert-md {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-weight: normal;
+}
+ .alert-input.sc-ion-alert-md {
+    margin:0; 
+    color: #002c53;
+     border-bottom:none;
+     padding: 0px 5px; 
+}
+.alert-message.sc-ion-alert-md, .alert-input-group.sc-ion-alert-md {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+ .alert-button.sc-ion-alert-md {
+      padding-left: unset;
+      padding-right: unset;
+      -webkit-padding-start: 10px;
+      padding-inline-start: 10px;
+      -webkit-padding-end: 10px;
+      padding-inline-end: 10px;
+      /* text-align: center; */
+      width: 100%;
+      background: #002c53;
+      border-radius: 10px;
+      color: #fff;
+  }
+}
+.sendTeamRequest {
+  .alert-head.sc-ion-alert-md {
+    display: none;
+  }
+  button.alert-button.ion-focusable.ion-activatable.btn_ok.sc-ion-alert-md {
+    color: #fff;
+    background-color: #002c53;
+    font-weight: 300;
+    width: 100%;
+    margin: auto;
+    letter-spacing: 0;
+    border-radius: 10px;
+  }
+}
+.requestAcceptReject {
+  .alert-head.sc-ion-alert-md {
+    display: none;
+  }
+  button.alert-button.ion-focusable.ion-activatable.btn_ok.sc-ion-alert-md {
+    color: #fff;
+    background-color: #002c53;
+    font-weight: 300;
+    width: 100%;
+    margin: auto;
+    letter-spacing: 0;
+    border-radius: 10px;
+  }
+}
+.registeredAlert {
+  .alert-head.sc-ion-alert-md {
+    display: none;
+  }
+  button.alert-button.ion-focusable.ion-activatable.btn_ok.sc-ion-alert-md {
+    color: #fff;
+    background-color: #002c53;
+    font-weight: 300;
+    width: 100%;
+    margin: auto;
+    letter-spacing: 0;
+    border-radius: 10px;
+  }
+}
+.requestAlert {
+  .alert-head.sc-ion-alert-md {
+    display: none;
+  }
+
+  button.alert-button.ion-focusable.ion-activatable.btn_accept.sc-ion-alert-md {
+    color: #fff;
+    background-color: #002c53;
+    font-weight: 300;
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin: 0;
+  }
+  button.alert-button.ion-focusable.ion-activatable.btn_reject.sc-ion-alert-md {
+    color: #fff;
+    background-color: #c91e53;
+    font-weight: 300;
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin: 0;
+  }
+  .alert-button-group.sc-ion-alert-md {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+  }
+}
+.ios ion-refresher {
+  position: absolute;
+  top: 5em;
+  z-index: 999;
+}
+.md ion-refresher {
+  z-index: 999;
+}
