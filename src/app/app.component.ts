@@ -38,7 +38,13 @@ export class AppComponent {
     this.userId = JSON.parse(localStorage.getItem('user'));
     console.log('userdetails====', this.userId);
 
-
+    this.oneSignal.setLogLevel({ logLevel: 6, visualLevel: 2 });
+    this.oneSignal.startInit(this.oneSignalAppId, this.oneSignalFirebaseId);
+    this.oneSignal.endInit();
+    this.oneSignal.getIds().then((identity) => {
+      console.log('one signal id,', identity);
+      localStorage.setItem('deviceID', identity.userId);
+    });
 
   }
 
