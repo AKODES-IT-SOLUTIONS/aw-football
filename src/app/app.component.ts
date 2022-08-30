@@ -20,6 +20,7 @@ export class AppComponent {
   // oneSignalFirebaseId = '809200048320';
   oneSignalAppId = 'f629e689-5418-4d75-ab66-6e5dfb1d5226';
   oneSignalFirebaseId = '155437973416';
+  userId: any;
   constructor(
     private oneSignal: OneSignal,
     public navCtrl: NavController,
@@ -33,6 +34,12 @@ export class AppComponent {
   ) {
 
     this.pushNotification();
+
+    this.userId = JSON.parse(localStorage.getItem('user'));
+    console.log('userdetails====', this.userId);
+
+
+
   }
 
   pushNotification() {

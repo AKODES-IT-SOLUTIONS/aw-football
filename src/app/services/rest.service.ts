@@ -11,7 +11,7 @@ export class RestService {
   headers = new HttpHeaders();
   phoneId = '';
   // baseURL = 'https://aw-football.com/webservices';
-  baseURL='https://aw-football.com/Webservices/'
+  baseURL = 'https://aw-football.com/Webservices/'
   // baseURL = 'https://dev.eigix.com/aw-football/Webservices';
   authState = new BehaviorSubject(false);
   constructor(private http: HttpClient, private platform: Platform) {
@@ -34,7 +34,7 @@ export class RestService {
       headers: this.headers,
     });
   }
-  
+
   addPlayers(data) {
     return this.http.post(
       `${this.baseURL}/manage_teams/`,

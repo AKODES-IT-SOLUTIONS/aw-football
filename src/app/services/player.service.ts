@@ -33,7 +33,7 @@ export class PlayerService {
     public rest: RestService,
     public alertController: AlertController,
     public navCtrl: NavController
-  ) {}
+  ) { }
   public send() {
     this.sendingSurveyResponse = true;
     this.rest
@@ -105,7 +105,7 @@ export class PlayerService {
         player_id: id,
       })
       .subscribe((data: any) => {
-        console.log('surveys_list',data);
+        console.log('surveys_list', data);
         this.isLoading = false;
         if (data.available_surveys.length === 0) {
           this.displaySurveyStatus = true;
@@ -136,7 +136,7 @@ export class PlayerService {
         this.surveyToAnswers =
           this.coachesByQuestions[this.surveys].questions_list;
         this.surveys++;
-        console.log('displaySurvey',this.surveyToAnswers);
+        console.log('displaySurvey', this.surveyToAnswers);
       } else {
         this.surveys++;
         this.displaySurvey();
@@ -175,7 +175,7 @@ export class PlayerService {
       this.surveyToAnswers = [];
       this.survey_response = [];
       this.player = JSON.parse(localStorage.getItem('user'));
-      console.log('userdata',this.player);
+      console.log('userdata', this.player);
       this.getTeamRequest(this.player.users_id);
       this.getSurvey(this.player.users_id);
       event.target.complete();

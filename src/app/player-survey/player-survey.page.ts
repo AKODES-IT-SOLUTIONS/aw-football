@@ -8,7 +8,7 @@ import { PlayerService } from '../services/player.service';
   styleUrls: ['./player-survey.page.scss'],
 })
 export class PlayerSurveyPage implements OnInit {
-  constructor(public playerService: PlayerService) {}
+  constructor(public playerService: PlayerService) { }
   ngOnInit() {
     this.playerService.sendDeviceID();
     this.playerService.surveyReady();

@@ -67,7 +67,7 @@ export class SigninPage implements OnInit {
       console.log('one signal id,', identity);
 
       this.phoneId = identity.userId;
-      // localStorage.setItem('deviceID', this.identy.userId);
+      localStorage.setItem('deviceID', identity.userId);
     });
     // this.phoneId = localStorage.getItem('deviceID');
   }
@@ -84,6 +84,8 @@ export class SigninPage implements OnInit {
           })
           .subscribe(
             (data: any) => {
+
+
               if (data.status === 'error') {
                 this.isLoading = false;
                 this.error.status = true;
@@ -155,6 +157,7 @@ export class SigninPage implements OnInit {
           })
           .subscribe(
             (data: any) => {
+              console.log('data response of player====', data);
               if (data.status === 'error') {
                 this.isLoading = false;
                 this.error.status = true;
@@ -173,6 +176,7 @@ export class SigninPage implements OnInit {
                   'rememberMe',
                   JSON.stringify(this.rememberMe)
                 );
+                localStorage.setItem("isLoggedIn", "true");
                 localStorage.setItem('accountType', this.userType);
 
                 if (Object.keys(localStorage).includes('user')) {
@@ -185,6 +189,8 @@ export class SigninPage implements OnInit {
                     }
                   }
                   if (parseInt(data.user_data.roles_id) === 1) {
+
+
                     this.navCtrl.navigateRoot('/player-survey');
                   } else {
                     this.error.status = true;
@@ -206,6 +212,7 @@ export class SigninPage implements OnInit {
               }
             },
             (error) => {
+              console.log('error response of player====', error);
               this.isLoading = false;
               this.error.status = true;
               this.error.message = 'Something went wrong!';

@@ -66,7 +66,7 @@ export class SignupPage implements OnInit {
       console.log('one signal id,', identity);
 
       this.phoneId = identity.userId;
-      // localStorage.setItem('deviceID', this.identy.userId);
+      localStorage.setItem('deviceID', identity.userId);
     });
   }
   ngOnInit() {
