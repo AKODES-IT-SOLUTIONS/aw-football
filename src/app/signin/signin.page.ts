@@ -60,18 +60,19 @@ export class SigninPage implements OnInit {
 
     this.username = '';
     this.password = '';
-    this.oneSignal.setLogLevel({ logLevel: 6, visualLevel: 2 });
-    this.oneSignal.startInit(this.oneSignalAppId, this.oneSignalFirebaseId);
-    this.oneSignal.endInit();
-    this.oneSignal.getIds().then((identity) => {
-      console.log('one signal id,', identity);
+    // this.oneSignal.setLogLevel({ logLevel: 6, visualLevel: 2 });
+    // this.oneSignal.startInit(this.oneSignalAppId, this.oneSignalFirebaseId);
+    // this.oneSignal.endInit();
+    // this.oneSignal.getIds().then((identity) => {
+    //   console.log('one signal id,', identity);
 
-      this.phoneId = identity.userId;
-      localStorage.setItem('deviceID', identity.userId);
-    });
+    //   this.phoneId = identity.userId;
+    //   localStorage.setItem('deviceID', identity.userId);
+    // });
     // this.phoneId = localStorage.getItem('deviceID');
   }
   login() {
+    this.phoneId = localStorage.getItem('deviceID');
     if (this.username && this.password) {
       if (this.userType === 'COACH') {
         this.isLoading = true;

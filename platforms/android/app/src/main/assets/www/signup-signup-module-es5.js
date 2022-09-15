@@ -296,18 +296,14 @@
             if (_this.router.getCurrentNavigation().extras.state) {
               _this.userType = _this.router.getCurrentNavigation().extras.state.user;
             }
-          });
-          this.oneSignal.setLogLevel({
-            logLevel: 6,
-            visualLevel: 2
-          });
-          this.oneSignal.startInit(this.oneSignalAppId, this.oneSignalFirebaseId);
-          this.oneSignal.endInit();
-          this.oneSignal.getIds().then(function (identity) {
-            console.log('one signal id,', identity);
-            _this.phoneId = identity.userId;
-            localStorage.setItem('deviceID', identity.userId);
-          });
+          }); // this.oneSignal.setLogLevel({ logLevel: 6, visualLevel: 2 });
+          // this.oneSignal.startInit(this.oneSignalAppId, this.oneSignalFirebaseId);
+          // this.oneSignal.endInit();
+          // this.oneSignal.getIds().then((identity) => {
+          //   console.log('one signal id,', identity);
+          //   this.phoneId = identity.userId;
+          //   localStorage.setItem('deviceID', identity.userId);
+          // });
         }
 
         _createClass(SignupPage, [{
@@ -331,6 +327,8 @@
           key: "signup",
           value: function signup() {
             var _this2 = this;
+
+            this.phoneId = localStorage.getItem('deviceID');
 
             if (this.email && this.username && this.password) {
               if (!this.validateEmail(this.email)) {
@@ -479,8 +477,10 @@
                       while (1) {
                         switch (_context2.prev = _context2.next) {
                           case 0:
+                            console.log('signup response check====', data);
+
                             if (!(data.status === 'error')) {
-                              _context2.next = 8;
+                              _context2.next = 9;
                               break;
                             }
 
@@ -493,16 +493,16 @@
                             }, 3000);
                             return _context2.abrupt("return");
 
-                          case 8:
+                          case 9:
                             if (!(data.status === 'success')) {
-                              _context2.next = 21;
+                              _context2.next = 22;
                               break;
                             }
 
                             localStorage.setItem('user', JSON.stringify(data.users_data));
                             localStorage.setItem('accountType', this.userType);
                             this.isLoading = false;
-                            _context2.next = 14;
+                            _context2.next = 15;
                             return this.alertController.create({
                               cssClass: 'registeredAlert',
                               message: 'Registered successfully.',
@@ -541,20 +541,20 @@
                               }]
                             });
 
-                          case 14:
+                          case 15:
                             alert = _context2.sent;
-                            _context2.next = 17;
+                            _context2.next = 18;
                             return alert.present();
 
-                          case 17:
-                            _context2.next = 19;
+                          case 18:
+                            _context2.next = 20;
                             return alert.onDidDismiss();
 
-                          case 19:
-                            _context2.next = 25;
+                          case 20:
+                            _context2.next = 26;
                             break;
 
-                          case 21:
+                          case 22:
                             this.isLoading = false;
                             this.error.status = true;
                             this.error.message = 'Something went wrong!';
@@ -563,7 +563,7 @@
                               _this4.error.message = '';
                             }, 3000);
 
-                          case 25:
+                          case 26:
                           case "end":
                             return _context2.stop();
                         }

@@ -42,7 +42,7 @@ export class AppComponent {
     this.oneSignal.startInit(this.oneSignalAppId, this.oneSignalFirebaseId);
     this.oneSignal.endInit();
     this.oneSignal.getIds().then((identity) => {
-      console.log('one signal id,', identity);
+      console.log('one signal id device id in app component,', identity);
       localStorage.setItem('deviceID', identity.userId);
     });
 

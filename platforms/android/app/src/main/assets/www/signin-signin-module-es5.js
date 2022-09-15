@@ -193,26 +193,23 @@
         _createClass(SigninPage, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this = this;
-
             this.username = '';
-            this.password = '';
-            this.oneSignal.setLogLevel({
-              logLevel: 6,
-              visualLevel: 2
-            });
-            this.oneSignal.startInit(this.oneSignalAppId, this.oneSignalFirebaseId);
-            this.oneSignal.endInit();
-            this.oneSignal.getIds().then(function (identity) {
-              console.log('one signal id,', identity);
-              _this.phoneId = identity.userId;
-              localStorage.setItem('deviceID', identity.userId);
-            }); // this.phoneId = localStorage.getItem('deviceID');
+            this.password = ''; // this.oneSignal.setLogLevel({ logLevel: 6, visualLevel: 2 });
+            // this.oneSignal.startInit(this.oneSignalAppId, this.oneSignalFirebaseId);
+            // this.oneSignal.endInit();
+            // this.oneSignal.getIds().then((identity) => {
+            //   console.log('one signal id,', identity);
+            //   this.phoneId = identity.userId;
+            //   localStorage.setItem('deviceID', identity.userId);
+            // });
+            // this.phoneId = localStorage.getItem('deviceID');
           }
         }, {
           key: "login",
           value: function login() {
-            var _this2 = this;
+            var _this = this;
+
+            this.phoneId = localStorage.getItem('deviceID');
 
             if (this.username && this.password) {
               if (this.userType === 'COACH') {
@@ -224,60 +221,60 @@
                   deviceID: this.phoneId
                 }).subscribe(function (data) {
                   if (data.status === 'error') {
-                    _this2.isLoading = false;
-                    _this2.error.status = true;
-                    _this2.error.message = data.msg;
+                    _this.isLoading = false;
+                    _this.error.status = true;
+                    _this.error.message = data.msg;
                     setTimeout(function () {
-                      _this2.error.status = false;
-                      _this2.error.message = '';
+                      _this.error.status = false;
+                      _this.error.message = '';
                     }, 3000);
                     return;
                   } else if (data.status === 'success') {
-                    _this2.isLoading = false;
-                    _this2.username = '';
-                    _this2.password = '';
+                    _this.isLoading = false;
+                    _this.username = '';
+                    _this.password = '';
                     localStorage.setItem('user', JSON.stringify(data.user_data));
-                    localStorage.setItem('rememberMe', JSON.stringify(_this2.rememberMe));
-                    localStorage.setItem('accountType', _this2.userType);
+                    localStorage.setItem('rememberMe', JSON.stringify(_this.rememberMe));
+                    localStorage.setItem('accountType', _this.userType);
 
                     if (Object.keys(localStorage).includes('user')) {
                       if (parseInt(data.user_data.roles_id) === 3) {
-                        if (_this2.userType === 'COACH') {
-                          _this2.navCtrl.navigateRoot('/home-coach');
+                        if (_this.userType === 'COACH') {
+                          _this.navCtrl.navigateRoot('/home-coach');
                         }
 
-                        if (_this2.userType === 'PLAYER') {
-                          _this2.navCtrl.navigateRoot('/player-survey');
+                        if (_this.userType === 'PLAYER') {
+                          _this.navCtrl.navigateRoot('/player-survey');
                         }
                       }
 
                       if (parseInt(data.user_data.roles_id) === 2) {
-                        _this2.navCtrl.navigateRoot('/home-coach');
+                        _this.navCtrl.navigateRoot('/home-coach');
                       } else {
-                        _this2.error.status = true;
-                        _this2.error.message = 'Something went wrong!';
+                        _this.error.status = true;
+                        _this.error.message = 'Something went wrong!';
                         setTimeout(function () {
-                          _this2.error.status = false;
-                          _this2.error.message = '';
+                          _this.error.status = false;
+                          _this.error.message = '';
                         }, 3000);
                       }
                     }
                   } else {
-                    _this2.isLoading = false;
-                    _this2.error.status = true;
-                    _this2.error.message = 'Something went wrong!';
+                    _this.isLoading = false;
+                    _this.error.status = true;
+                    _this.error.message = 'Something went wrong!';
                     setTimeout(function () {
-                      _this2.error.status = false;
-                      _this2.error.message = '';
+                      _this.error.status = false;
+                      _this.error.message = '';
                     }, 3000);
                   }
                 }, function (error) {
-                  _this2.isLoading = false;
-                  _this2.error.status = true;
-                  _this2.error.message = 'Something went wrong!';
+                  _this.isLoading = false;
+                  _this.error.status = true;
+                  _this.error.message = 'Something went wrong!';
                   setTimeout(function () {
-                    _this2.error.status = false;
-                    _this2.error.message = '';
+                    _this.error.status = false;
+                    _this.error.message = '';
                   }, 3000);
                 });
               } else if (this.userType === 'PLAYER') {
@@ -291,62 +288,62 @@
                   console.log('data response of player====', data);
 
                   if (data.status === 'error') {
-                    _this2.isLoading = false;
-                    _this2.error.status = true;
-                    _this2.error.message = data.msg;
+                    _this.isLoading = false;
+                    _this.error.status = true;
+                    _this.error.message = data.msg;
                     setTimeout(function () {
-                      _this2.error.status = false;
-                      _this2.error.message = '';
+                      _this.error.status = false;
+                      _this.error.message = '';
                     }, 3000);
                     return;
                   } else if (data.status === 'success') {
-                    _this2.username = '';
-                    _this2.password = '';
-                    _this2.isLoading = false;
+                    _this.username = '';
+                    _this.password = '';
+                    _this.isLoading = false;
                     localStorage.setItem('user', JSON.stringify(data.user_data));
-                    localStorage.setItem('rememberMe', JSON.stringify(_this2.rememberMe));
+                    localStorage.setItem('rememberMe', JSON.stringify(_this.rememberMe));
                     localStorage.setItem("isLoggedIn", "true");
-                    localStorage.setItem('accountType', _this2.userType);
+                    localStorage.setItem('accountType', _this.userType);
 
                     if (Object.keys(localStorage).includes('user')) {
                       if (parseInt(data.user_data.roles_id) === 3) {
-                        if (_this2.userType === 'COACH') {
-                          _this2.navCtrl.navigateRoot('/home-coach');
+                        if (_this.userType === 'COACH') {
+                          _this.navCtrl.navigateRoot('/home-coach');
                         }
 
-                        if (_this2.userType === 'PLAYER') {
-                          _this2.navCtrl.navigateRoot('/player-survey');
+                        if (_this.userType === 'PLAYER') {
+                          _this.navCtrl.navigateRoot('/player-survey');
                         }
                       }
 
                       if (parseInt(data.user_data.roles_id) === 1) {
-                        _this2.navCtrl.navigateRoot('/player-survey');
+                        _this.navCtrl.navigateRoot('/player-survey');
                       } else {
-                        _this2.error.status = true;
-                        _this2.error.message = 'Something went wrong!';
+                        _this.error.status = true;
+                        _this.error.message = 'Something went wrong!';
                         setTimeout(function () {
-                          _this2.error.status = false;
-                          _this2.error.message = '';
+                          _this.error.status = false;
+                          _this.error.message = '';
                         }, 3000);
                       }
                     }
                   } else {
-                    _this2.isLoading = false;
-                    _this2.error.status = true;
-                    _this2.error.message = 'Something went wrong!';
+                    _this.isLoading = false;
+                    _this.error.status = true;
+                    _this.error.message = 'Something went wrong!';
                     setTimeout(function () {
-                      _this2.error.status = false;
-                      _this2.error.message = '';
+                      _this.error.status = false;
+                      _this.error.message = '';
                     }, 3000);
                   }
                 }, function (error) {
                   console.log('error response of player====', error);
-                  _this2.isLoading = false;
-                  _this2.error.status = true;
-                  _this2.error.message = 'Something went wrong!';
+                  _this.isLoading = false;
+                  _this.error.status = true;
+                  _this.error.message = 'Something went wrong!';
                   setTimeout(function () {
-                    _this2.error.status = false;
-                    _this2.error.message = '';
+                    _this.error.status = false;
+                    _this.error.message = '';
                   }, 3000);
                 });
               } else {
@@ -365,10 +362,10 @@
             }
 
             setTimeout(function () {
-              _this2.usernameError.status = false;
-              _this2.usernameError.message = '';
-              _this2.passwordError.status = false;
-              _this2.passwordError.message = '';
+              _this.usernameError.status = false;
+              _this.usernameError.message = '';
+              _this.passwordError.status = false;
+              _this.passwordError.message = '';
             }, 3000);
           }
         }, {

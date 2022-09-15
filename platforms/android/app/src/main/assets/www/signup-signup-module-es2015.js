@@ -177,14 +177,14 @@ let SignupPage = class SignupPage {
                 this.userType = this.router.getCurrentNavigation().extras.state.user;
             }
         });
-        this.oneSignal.setLogLevel({ logLevel: 6, visualLevel: 2 });
-        this.oneSignal.startInit(this.oneSignalAppId, this.oneSignalFirebaseId);
-        this.oneSignal.endInit();
-        this.oneSignal.getIds().then((identity) => {
-            console.log('one signal id,', identity);
-            this.phoneId = identity.userId;
-            localStorage.setItem('deviceID', identity.userId);
-        });
+        // this.oneSignal.setLogLevel({ logLevel: 6, visualLevel: 2 });
+        // this.oneSignal.startInit(this.oneSignalAppId, this.oneSignalFirebaseId);
+        // this.oneSignal.endInit();
+        // this.oneSignal.getIds().then((identity) => {
+        //   console.log('one signal id,', identity);
+        //   this.phoneId = identity.userId;
+        //   localStorage.setItem('deviceID', identity.userId);
+        // });
     }
     ngOnInit() {
         this.email = '';
@@ -201,6 +201,7 @@ let SignupPage = class SignupPage {
         this.navCtrl.navigateBack(['signin'], navigationExtras);
     }
     signup() {
+        this.phoneId = localStorage.getItem('deviceID');
         if (this.email && this.username && this.password) {
             if (!this.validateEmail(this.email)) {
                 this.emailError.status = true;
@@ -307,6 +308,7 @@ let SignupPage = class SignupPage {
                     deviceID: this.phoneId,
                 })
                     .subscribe((data) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+                    console.log('signup response check====', data);
                     if (data.status === 'error') {
                         this.isLoading = false;
                         this.error.status = true;

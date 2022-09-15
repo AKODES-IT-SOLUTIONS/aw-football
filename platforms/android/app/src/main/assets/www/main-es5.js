@@ -23,7 +23,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! D:\najam\aw-football-07-05-2022\src\main.ts */
+      /*! D:\najam\aw-football\src\main.ts */
       "zUnb");
       /***/
     },
@@ -648,7 +648,7 @@
           this.oneSignal.startInit(this.oneSignalAppId, this.oneSignalFirebaseId);
           this.oneSignal.endInit();
           this.oneSignal.getIds().then(function (identity) {
-            console.log('one signal id,', identity);
+            console.log('one signal id device id in app component,', identity);
             localStorage.setItem('deviceID', identity.userId);
           });
         }
